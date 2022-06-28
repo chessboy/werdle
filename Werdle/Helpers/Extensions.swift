@@ -26,7 +26,7 @@ extension String {
 }
 
 struct ScaleButtonStyle: ButtonStyle {
-	var scale: CGFloat = 1.15
+	var scale: CGFloat = 1.2
 	func makeBody(configuration: Self.Configuration) -> some View {
 		configuration.label
 			.scaleEffect(configuration.isPressed ? scale : 1.0)

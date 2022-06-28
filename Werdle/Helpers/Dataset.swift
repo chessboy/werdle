@@ -19,7 +19,11 @@ class Dataset {
 	}
 		
 	public var randomWord: String {
-		return words.randomElement() ?? "HELLO"
+		return words.randomElement()?.uppercased() ?? "HELLO"
+	}
+	
+	public func containsWord(_ word: String) -> Bool {
+		return words.contains(word.lowercased())
 	}
 	
 	private func loadDataSet() {

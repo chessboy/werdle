@@ -10,16 +10,21 @@ import SwiftUI
 
 struct ContentView: View {
 	
-	@State var game = Game.testGame
+	@State var game = Game()
 
 	var body: some View {
 		
 		GeometryReader { geo in
 			VStack(alignment: .center, spacing: 10) {
 				
-				Text("Werdle")
-					.appFont(.black, size: 25)
-					.padding()
+				Button(action: {
+					game = Game()
+				}) {
+
+					Text("Werdle")
+						.appFont(.black, size: 25)
+						.padding()
+				}.buttonStyle(ScaleButtonStyle())
 				
 				VStack {
 					SquareView(game: $game, width: min(geo.size.width, geo.size.height))

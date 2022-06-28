@@ -78,6 +78,7 @@ struct WordGuess: Identifiable {
 	var id: Int = 0
 	var letterGuesses: [LetterGuess] = []
 	var correct: Bool = false
+	var bad: Bool = false
 	
 	static func emptyGuess(index: Int) -> WordGuess {
 		var letterGuesses: [LetterGuess] = []
@@ -87,6 +88,14 @@ struct WordGuess: Identifiable {
 		}
 		
 		return WordGuess(id: index, letterGuesses: letterGuesses, correct: false)
+	}
+	
+	var word: String {
+		return letterGuesses.map({ $0.letter }).joined()
+	}
+	
+	var hasEmptyLetters: Bool {
+		return letterGuesses.filter({ $0.letter.isEmpty }).count > 0
 	}
 	
 	static func evaluateWord(_ word: String, target: String, guessIndex: Int) -> WordGuess {
@@ -101,6 +110,8 @@ struct WordGuess: Identifiable {
 			return WordGuess.emptyGuess(index: guessIndex)
 		}
 
+		print("evaluate word: \(word), target: \(target)")
+		
 		let wordLetters = word.map { String($0) }
 		let targetLetters = target.map { String($0) }
 
@@ -128,20 +139,17 @@ struct WordGuess: Identifiable {
 
 struct Game {
 	var target: String = "HELLO"
+	var guessIndex: Int = 0
+	var letterIndex: Int = 0
+	var currentGuess: WordGuess = WordGuess.emptyGuess(index: 0)
 	var wordGuesses: [WordGuess] = []
 	var uniqueLetterGuesses: [LetterGuess] = []
 	var solved = false
-
-	func colorForKeyboardLetter(_ letter: String) -> Color {
-		if let letterGuess = uniqueLetterGuesses.filter({ $0.letter == letter }).first {
-			return letterGuess.eval.color
-		}
-		return Colors.keyboardKey
-	}
-		
-	var guessIndex: Int = 0
 	
 	init() {
+		target = Dataset.shared.randomWord
+		print("target: \(target)")
+		
 		wordGuesses.append(WordGuess.emptyGuess(index: 0))
 		wordGuesses.append(WordGuess.emptyGuess(index: 1))
 		wordGuesses.append(WordGuess.emptyGuess(index: 2))
@@ -150,6 +158,64 @@ struct Game {
 		wordGuesses.append(WordGuess.emptyGuess(index: 5))
 	}
 	
+	mutating func acceptKey(_ key: String) {
+		print("acceptKey: \(key)")
+		
+		if key == "ENTER" {
+			handleEnterTyped()
+		} else if key == "DEL" {
+			handleDeleteTyped()
+		} else {
+			handleLetterTyped(key)
+		}
+	}
+	
+	private mutating func handleLetterTyped(_ letter: String) {
+		guard currentGuess.hasEmptyLetters else { return }
+		guard !solved else { return }
+		
+		currentGuess.letterGuesses[letterIndex] = LetterGuess(id: letterIndex, letter: letter, eval: .blank)
+		wordGuesses[guessIndex] = currentGuess
+		letterIndex += 1
+		print("letterIndex: \(letterIndex), currentGuess: \(currentGuess)")
+	}
+	
+	private mutating func handleDeleteTyped() {
+		guard letterIndex >= 1 else { return }
+		guard !solved else { return }
+
+		currentGuess.bad = false
+		currentGuess.letterGuesses[letterIndex - 1] = LetterGuess(id: letterIndex, letter: "", eval: .blank)
+		wordGuesses[guessIndex] = currentGuess
+		letterIndex -= 1
+		print("letterIndex: \(letterIndex), currentGuess: \(currentGuess)")
+	}
+	
+	private mutating func handleEnterTyped() {
+		guard !currentGuess.hasEmptyLetters else { return }
+		guard !solved else { return }
+
+		let word = currentGuess.word
+		if Dataset.shared.containsWord(word) {
+			print("handleEnterTyped: good word: \(word)")
+			let wordGuess = WordGuess.evaluateWord(word, target: target, guessIndex: guessIndex)
+			addNewWordGuess(wordGuess)
+		} else {
+			print("handleEnterTyped: bad word: \(word)")
+			currentGuess.bad = true
+			wordGuesses[guessIndex] = currentGuess
+
+			print("letterIndex: \(letterIndex), currentGuess: \(currentGuess)")
+		}
+	}
+	
+	func colorForKeyboardLetter(_ letter: String) -> Color {
+		if let letterGuess = uniqueLetterGuesses.filter({ $0.letter == letter }).first {
+			return letterGuess.eval.color
+		}
+		return Colors.keyboardKey
+	}
+		
 	mutating func addNewWordGuess(_ wordGuess: WordGuess) {
 		
 		wordGuesses[guessIndex] = wordGuess
@@ -159,21 +225,16 @@ struct Game {
 		let guessNumber = guessIndex + 1
 		print("guess \(guessNumber): \(wordGuess), solved: \(solved)")
 		print("guess \(guessNumber): uniqueLetterGuesses: \(uniqueLetterGuesses)")
-		
 		print()
 		
 		guessIndex += 1
+		letterIndex = 0
+		currentGuess = WordGuess.emptyGuess(index: guessIndex)
 	}
 	
 	static var testGame: Game {
 		var game = Game()
-		
-		game.target = "RUSTY"
-		game.addNewWordGuess(WordGuess.evaluateWord("CRANE", target: game.target, guessIndex: 0))
-		game.addNewWordGuess(WordGuess.evaluateWord("STRIP", target: game.target, guessIndex: 1))
-		game.addNewWordGuess(WordGuess.evaluateWord("ROUST", target: game.target, guessIndex: 2))
-		game.addNewWordGuess(WordGuess.evaluateWord("RUSTY", target: game.target, guessIndex: 3))
-
+		game.target = "ACORN"
 		return game
 	}
 	

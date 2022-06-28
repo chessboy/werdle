@@ -27,14 +27,23 @@ struct KeyboardView: View {
 					
 					Spacer()
 					ForEach(Constants.Keyboard.row1, id: \.self) { text in
-						ZStack {
-							Rectangle().foregroundColor(game.colorForKeyboardLetter(text))
-								.frame(width: width/12, height: width/9, alignment: .center)
-								.cornerRadius(6)
-							Text(text)
-								.appFont(.black, size: 15)
-								.foregroundColor(.white)
-						}
+						Button(action: {
+							game.acceptKey(text)
+						}) {
+							
+							ZStack {
+
+								Rectangle().foregroundColor(game.colorForKeyboardLetter(text))
+									.frame(width: width/12, height: width/9, alignment: .center)
+									.cornerRadius(6)
+								
+									Text(text)
+										.appFont(.black, size: 15)
+										.foregroundColor(.white)
+							}
+
+						}.buttonStyle(ScaleButtonStyle())
+
 					}
 					Spacer()
 				}
@@ -42,14 +51,23 @@ struct KeyboardView: View {
 				HStack(alignment: .center, spacing: 5) {
 					Spacer()
 					ForEach(Constants.Keyboard.row2, id: \.self) { text in
-						ZStack {
-							Rectangle().foregroundColor(game.colorForKeyboardLetter(text))
-								.frame(width: width/12, height: width/9, alignment: .center)
-								.cornerRadius(6)
-							Text(text)
-								.appFont(.black, size: 15)
-								.foregroundColor(.white)
-						}
+						
+						Button(action: {
+							game.acceptKey(text)
+						}) {
+							
+							ZStack {
+
+								Rectangle().foregroundColor(game.colorForKeyboardLetter(text))
+									.frame(width: width/12, height: width/9, alignment: .center)
+									.cornerRadius(6)
+								
+									Text(text)
+										.appFont(.black, size: 15)
+										.foregroundColor(.white)
+							}
+
+						}.buttonStyle(ScaleButtonStyle())
 					}
 					Spacer()
 				}
@@ -57,14 +75,23 @@ struct KeyboardView: View {
 				HStack(alignment: .center, spacing: 5) {
 					Spacer()
 					ForEach(Constants.Keyboard.row3, id: \.self) { text in
-						ZStack {
-							Rectangle().foregroundColor(game.colorForKeyboardLetter(text))
-								.frame(width: text == "ENTER" ? width/7 : width/12, height: width/9, alignment: .center)
-								.cornerRadius(6)
-							Text(text)
-								.appFont(.black, size: 15)
-								.foregroundColor(.white)
-						}
+							
+						Button(action: {
+							game.acceptKey(text)
+						}) {
+							
+							ZStack {
+
+								Rectangle().foregroundColor(game.colorForKeyboardLetter(text))
+									.frame(width: text == "ENTER" ? width/7 : width/12, height: width/9, alignment: .center)
+									.cornerRadius(6)
+								
+									Text(text)
+										.appFont(.black, size: 15)
+										.foregroundColor(.white)
+							}
+
+						}.buttonStyle(ScaleButtonStyle())
 					}
 					Spacer()
 				}

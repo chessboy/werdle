@@ -23,6 +23,7 @@ struct Colors {
 	static let squarePresentRightPos = Color("squarePresentRightPos")
 	static let squarePresentWrongPos = Color("squarePresentWrongPos")
 	static let squareEmptyBorder = Color("squareEmptyBorder")
+	static let squareBadWord = Color("squareBadWord")
 	
 	
 	// keyboard

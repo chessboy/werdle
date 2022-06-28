@@ -27,7 +27,7 @@ struct SquareView: View {
 					ForEach(wordGuess.letterGuesses, id: \.id) { letterGuess in
 						
 						ZStack {
-							Rectangle().foregroundColor(letterGuess.eval.color).border(letterGuess.eval.borderColor, width: 2)
+							Rectangle().foregroundColor(wordGuess.bad ? Colors.squareBadWord : letterGuess.eval.color).border(wordGuess.bad ? Colors.squareBadWord : letterGuess.eval.borderColor, width: 2)
 								.frame(width: width/6, height: width/6, alignment: .center)
 							Text(letterGuess.letter)
 								.appFont(.black, size: 45)
