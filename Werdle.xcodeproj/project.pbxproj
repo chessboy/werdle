@@ -1,0 +1,620 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D444A1BD243D803F00481B44 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D444A1BC243D803F00481B44 /* ActionButton.swift */; };
+		D4556F0124394C550025E7D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4556F0024394C550025E7D3 /* AppDelegate.swift */; };
+		D4556F0324394C550025E7D3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4556F0224394C550025E7D3 /* SceneDelegate.swift */; };
+		D4556F0524394C550025E7D3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4556F0424394C550025E7D3 /* ContentView.swift */; };
+		D4556F0724394C570025E7D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4556F0624394C570025E7D3 /* Assets.xcassets */; };
+		D4556F0A24394C570025E7D3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4556F0924394C570025E7D3 /* Preview Assets.xcassets */; };
+		D4556F0D24394C570025E7D3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4556F0B24394C570025E7D3 /* LaunchScreen.storyboard */; };
+		D4556F1824394C570025E7D3 /* WerdleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4556F1724394C570025E7D3 /* WerdleTests.swift */; };
+		D4556F2324394F250025E7D3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4556F2224394F250025E7D3 /* Constants.swift */; };
+		D4556F2424394F250025E7D3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4556F2224394F250025E7D3 /* Constants.swift */; };
+		D4556F26243954340025E7D3 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4556F25243954340025E7D3 /* Extensions.swift */; };
+		D4556F27243954340025E7D3 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4556F25243954340025E7D3 /* Extensions.swift */; };
+		D4661FD82439AB550077D091 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4661FD72439AB550077D091 /* Colors.swift */; };
+		D4661FDA243A2ED60077D091 /* RotatableStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4661FD9243A2ED60077D091 /* RotatableStack.swift */; };
+		D46791872439963800D464A3 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D46791862439963800D464A3 /* Default-568h@2x.png */; };
+		D481DED8243CBF1F00EE01FC /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D481DED6243CBF1F00EE01FC /* SafariView.swift */; };
+		D481DED9243CBF1F00EE01FC /* CustomSafariViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D481DED7243CBF1F00EE01FC /* CustomSafariViewController.swift */; };
+		D4898C0828693BDC009DDEB3 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4898C0728693BDC009DDEB3 /* Model.swift */; };
+		D4898C0A28694A4E009DDEB3 /* KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4898C0928694A4E009DDEB3 /* KeyboardView.swift */; };
+		D4898C0C286AAC50009DDEB3 /* 5_letters.csv in Resources */ = {isa = PBXBuildFile; fileRef = D4898C0B286AAC50009DDEB3 /* 5_letters.csv */; };
+		D4898C0E286AACAA009DDEB3 /* Dataset.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4898C0D286AACAA009DDEB3 /* Dataset.swift */; };
+		D4A67FB524395C5C006E8303 /* FontFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4556F37243955900025E7D3 /* FontFactory.swift */; };
+		D4A67FB624395C90006E8303 /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4A67FA524395C17006E8303 /* Lato-Black.ttf */; };
+		D4A67FB724395C90006E8303 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4A67FA424395C17006E8303 /* Lato-Bold.ttf */; };
+		D4A67FB824395C90006E8303 /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4A67FA824395C17006E8303 /* Lato-Light.ttf */; };
+		D4A67FB924395C90006E8303 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4A67FA724395C17006E8303 /* Lato-Regular.ttf */; };
+		D4A67FBA24395C90006E8303 /* Lato-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4A67FA324395C17006E8303 /* Lato-Semibold.ttf */; };
+		D4A67FBB24395C90006E8303 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = D4A67FA624395C17006E8303 /* OFL.txt */; };
+		D4FAD03E243A7CED003CE5B6 /* SquareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FAD03D243A7CED003CE5B6 /* SquareView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D4556F1424394C570025E7D3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D4556EF524394C550025E7D3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D4556EFC24394C550025E7D3;
+			remoteInfo = Werdle;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D444A1BC243D803F00481B44 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
+		D4556EFD24394C550025E7D3 /* Werdle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Werdle.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4556F0024394C550025E7D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D4556F0224394C550025E7D3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		D4556F0424394C550025E7D3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		D4556F0624394C570025E7D3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D4556F0924394C570025E7D3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D4556F0C24394C570025E7D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D4556F0E24394C570025E7D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Werdle/Resources/Info.plist; sourceTree = SOURCE_ROOT; };
+		D4556F1324394C570025E7D3 /* WerdleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WerdleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4556F1724394C570025E7D3 /* WerdleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WerdleTests.swift; sourceTree = "<group>"; };
+		D4556F1924394C570025E7D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D4556F2224394F250025E7D3 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		D4556F25243954340025E7D3 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		D4556F37243955900025E7D3 /* FontFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontFactory.swift; sourceTree = "<group>"; };
+		D4661FD72439AB550077D091 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		D4661FD9243A2ED60077D091 /* RotatableStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotatableStack.swift; sourceTree = "<group>"; };
+		D46791862439963800D464A3 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		D481DED6243CBF1F00EE01FC /* SafariView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
+		D481DED7243CBF1F00EE01FC /* CustomSafariViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSafariViewController.swift; sourceTree = "<group>"; };
+		D4898C0728693BDC009DDEB3 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		D4898C0928694A4E009DDEB3 /* KeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardView.swift; sourceTree = "<group>"; };
+		D4898C0B286AAC50009DDEB3 /* 5_letters.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 5_letters.csv; sourceTree = "<group>"; };
+		D4898C0D286AACAA009DDEB3 /* Dataset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dataset.swift; sourceTree = "<group>"; };
+		D4A67FA324395C17006E8303 /* Lato-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Semibold.ttf"; sourceTree = "<group>"; };
+		D4A67FA424395C17006E8303 /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
+		D4A67FA524395C17006E8303 /* Lato-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Black.ttf"; sourceTree = "<group>"; };
+		D4A67FA624395C17006E8303 /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
+		D4A67FA724395C17006E8303 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
+		D4A67FA824395C17006E8303 /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Light.ttf"; sourceTree = "<group>"; };
+		D4FAD037243A3599003CE5B6 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		D4FAD038243A35D5003CE5B6 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		D4FAD03D243A7CED003CE5B6 /* SquareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D4556EFA24394C550025E7D3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4556F1024394C570025E7D3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D4556EF424394C550025E7D3 = {
+			isa = PBXGroup;
+			children = (
+				D4FAD038243A35D5003CE5B6 /* README.md */,
+				D4FAD037243A3599003CE5B6 /* .gitignore */,
+				D46791862439963800D464A3 /* Default-568h@2x.png */,
+				D4556EFF24394C550025E7D3 /* Werdle */,
+				D4556F1624394C570025E7D3 /* WerdleTests */,
+				D4556EFE24394C550025E7D3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D4556EFE24394C550025E7D3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D4556EFD24394C550025E7D3 /* Werdle.app */,
+				D4556F1324394C570025E7D3 /* WerdleTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D4556EFF24394C550025E7D3 /* Werdle */ = {
+			isa = PBXGroup;
+			children = (
+				D4898C0628693BB9009DDEB3 /* Models */,
+				D46791802439933B00D464A3 /* App */,
+				D467917D243992FD00D464A3 /* Views */,
+				D467917E2439931100D464A3 /* Helpers */,
+				D467917F2439932400D464A3 /* Resources */,
+				D4556F0824394C570025E7D3 /* Preview Content */,
+			);
+			path = Werdle;
+			sourceTree = "<group>";
+		};
+		D4556F0824394C570025E7D3 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				D4556F0924394C570025E7D3 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		D4556F1624394C570025E7D3 /* WerdleTests */ = {
+			isa = PBXGroup;
+			children = (
+				D4556F1724394C570025E7D3 /* WerdleTests.swift */,
+				D4556F1924394C570025E7D3 /* Info.plist */,
+			);
+			path = WerdleTests;
+			sourceTree = "<group>";
+		};
+		D4556F28243955590025E7D3 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				D4A67FA524395C17006E8303 /* Lato-Black.ttf */,
+				D4A67FA424395C17006E8303 /* Lato-Bold.ttf */,
+				D4A67FA824395C17006E8303 /* Lato-Light.ttf */,
+				D4A67FA724395C17006E8303 /* Lato-Regular.ttf */,
+				D4A67FA324395C17006E8303 /* Lato-Semibold.ttf */,
+				D4A67FA624395C17006E8303 /* OFL.txt */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		D467917D243992FD00D464A3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D4556F0424394C550025E7D3 /* ContentView.swift */,
+				D4FAD03D243A7CED003CE5B6 /* SquareView.swift */,
+				D4898C0928694A4E009DDEB3 /* KeyboardView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D467917E2439931100D464A3 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				D444A1BC243D803F00481B44 /* ActionButton.swift */,
+				D481DED7243CBF1F00EE01FC /* CustomSafariViewController.swift */,
+				D481DED6243CBF1F00EE01FC /* SafariView.swift */,
+				D4661FD9243A2ED60077D091 /* RotatableStack.swift */,
+				D4556F37243955900025E7D3 /* FontFactory.swift */,
+				D4556F25243954340025E7D3 /* Extensions.swift */,
+				D4898C0D286AACAA009DDEB3 /* Dataset.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		D467917F2439932400D464A3 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D4556F0E24394C570025E7D3 /* Info.plist */,
+				D4556F0624394C570025E7D3 /* Assets.xcassets */,
+				D4898C0B286AAC50009DDEB3 /* 5_letters.csv */,
+				D4556F0B24394C570025E7D3 /* LaunchScreen.storyboard */,
+				D4556F28243955590025E7D3 /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		D46791802439933B00D464A3 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				D4556F0024394C550025E7D3 /* AppDelegate.swift */,
+				D4556F0224394C550025E7D3 /* SceneDelegate.swift */,
+				D4556F2224394F250025E7D3 /* Constants.swift */,
+				D4661FD72439AB550077D091 /* Colors.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		D4898C0628693BB9009DDEB3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D4898C0728693BDC009DDEB3 /* Model.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D4556EFC24394C550025E7D3 /* Werdle */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D4556F1C24394C570025E7D3 /* Build configuration list for PBXNativeTarget "Werdle" */;
+			buildPhases = (
+				D4556EF924394C550025E7D3 /* Sources */,
+				D4556EFA24394C550025E7D3 /* Frameworks */,
+				D4556EFB24394C550025E7D3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Werdle;
+			productName = Werdle;
+			productReference = D4556EFD24394C550025E7D3 /* Werdle.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D4556F1224394C570025E7D3 /* WerdleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D4556F1F24394C570025E7D3 /* Build configuration list for PBXNativeTarget "WerdleTests" */;
+			buildPhases = (
+				D4556F0F24394C570025E7D3 /* Sources */,
+				D4556F1024394C570025E7D3 /* Frameworks */,
+				D4556F1124394C570025E7D3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D4556F1524394C570025E7D3 /* PBXTargetDependency */,
+			);
+			name = WerdleTests;
+			productName = WerdleTests;
+			productReference = D4556F1324394C570025E7D3 /* WerdleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D4556EF524394C550025E7D3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1140;
+				LastUpgradeCheck = 1230;
+				ORGANIZATIONNAME = "Robert Silverman";
+				TargetAttributes = {
+					D4556EFC24394C550025E7D3 = {
+						CreatedOnToolsVersion = 11.4;
+					};
+					D4556F1224394C570025E7D3 = {
+						CreatedOnToolsVersion = 11.4;
+						TestTargetID = D4556EFC24394C550025E7D3;
+					};
+				};
+			};
+			buildConfigurationList = D4556EF824394C550025E7D3 /* Build configuration list for PBXProject "Werdle" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D4556EF424394C550025E7D3;
+			productRefGroup = D4556EFE24394C550025E7D3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D4556EFC24394C550025E7D3 /* Werdle */,
+				D4556F1224394C570025E7D3 /* WerdleTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D4556EFB24394C550025E7D3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4A67FB624395C90006E8303 /* Lato-Black.ttf in Resources */,
+				D46791872439963800D464A3 /* Default-568h@2x.png in Resources */,
+				D4A67FBA24395C90006E8303 /* Lato-Semibold.ttf in Resources */,
+				D4A67FB724395C90006E8303 /* Lato-Bold.ttf in Resources */,
+				D4A67FBB24395C90006E8303 /* OFL.txt in Resources */,
+				D4556F0D24394C570025E7D3 /* LaunchScreen.storyboard in Resources */,
+				D4A67FB824395C90006E8303 /* Lato-Light.ttf in Resources */,
+				D4A67FB924395C90006E8303 /* Lato-Regular.ttf in Resources */,
+				D4898C0C286AAC50009DDEB3 /* 5_letters.csv in Resources */,
+				D4556F0A24394C570025E7D3 /* Preview Assets.xcassets in Resources */,
+				D4556F0724394C570025E7D3 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4556F1124394C570025E7D3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D4556EF924394C550025E7D3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D481DED8243CBF1F00EE01FC /* SafariView.swift in Sources */,
+				D4898C0828693BDC009DDEB3 /* Model.swift in Sources */,
+				D4661FD82439AB550077D091 /* Colors.swift in Sources */,
+				D4556F26243954340025E7D3 /* Extensions.swift in Sources */,
+				D4556F0124394C550025E7D3 /* AppDelegate.swift in Sources */,
+				D4556F0324394C550025E7D3 /* SceneDelegate.swift in Sources */,
+				D4A67FB524395C5C006E8303 /* FontFactory.swift in Sources */,
+				D481DED9243CBF1F00EE01FC /* CustomSafariViewController.swift in Sources */,
+				D4556F2324394F250025E7D3 /* Constants.swift in Sources */,
+				D4898C0E286AACAA009DDEB3 /* Dataset.swift in Sources */,
+				D4898C0A28694A4E009DDEB3 /* KeyboardView.swift in Sources */,
+				D4556F0524394C550025E7D3 /* ContentView.swift in Sources */,
+				D4FAD03E243A7CED003CE5B6 /* SquareView.swift in Sources */,
+				D4661FDA243A2ED60077D091 /* RotatableStack.swift in Sources */,
+				D444A1BD243D803F00481B44 /* ActionButton.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4556F0F24394C570025E7D3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4556F2424394F250025E7D3 /* Constants.swift in Sources */,
+				D4556F27243954340025E7D3 /* Extensions.swift in Sources */,
+				D4556F1824394C570025E7D3 /* WerdleTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D4556F1524394C570025E7D3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D4556EFC24394C550025E7D3 /* Werdle */;
+			targetProxy = D4556F1424394C570025E7D3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D4556F0B24394C570025E7D3 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D4556F0C24394C570025E7D3 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D4556F1A24394C570025E7D3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = /Users/rob/Projects/Werdle/Werdle/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D4556F1B24394C570025E7D3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = /Users/rob/Projects/Werdle/Werdle/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D4556F1D24394C570025E7D3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Werdle/Preview Content\"";
+				DEVELOPMENT_TEAM = KVXRU4PL78;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/Werdle/Resources/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.applepi.Werdle;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D4556F1E24394C570025E7D3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Werdle/Preview Content\"";
+				DEVELOPMENT_TEAM = KVXRU4PL78;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/Werdle/Resources/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.applepi.Werdle;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D4556F2024394C570025E7D3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KVXRU4PL78;
+				INFOPLIST_FILE = WerdleTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.applepi.WerdleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Werdle.app/Werdle";
+			};
+			name = Debug;
+		};
+		D4556F2124394C570025E7D3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KVXRU4PL78;
+				INFOPLIST_FILE = WerdleTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.applepi.WerdleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Werdle.app/Werdle";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D4556EF824394C550025E7D3 /* Build configuration list for PBXProject "Werdle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D4556F1A24394C570025E7D3 /* Debug */,
+				D4556F1B24394C570025E7D3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D4556F1C24394C570025E7D3 /* Build configuration list for PBXNativeTarget "Werdle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D4556F1D24394C570025E7D3 /* Debug */,
+				D4556F1E24394C570025E7D3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D4556F1F24394C570025E7D3 /* Build configuration list for PBXNativeTarget "WerdleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D4556F2024394C570025E7D3 /* Debug */,
+				D4556F2124394C570025E7D3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D4556EF524394C550025E7D3 /* Project object */;
+}
