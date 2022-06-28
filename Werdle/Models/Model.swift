@@ -64,7 +64,7 @@ struct LetterGuess: Identifiable, CustomStringConvertible {
 	var eval: LetterEval = .missing
 	
 	var description: String {
-		return "\(letter == "" ? "_" : letter):\(eval)"
+		return "\(id): \(letter == "" ? "_" : letter):\(eval)"
 	}
 }
 
@@ -110,7 +110,7 @@ struct WordGuess: Identifiable {
 			return WordGuess.emptyGuess(index: guessIndex)
 		}
 
-		print("evaluate word: \(word), target: \(target)")
+		//print("evaluate word: \(word), target: \(target)")
 		
 		let wordLetters = word.map { String($0) }
 		let targetLetters = target.map { String($0) }
@@ -148,18 +148,15 @@ struct Game {
 	
 	init() {
 		target = Dataset.shared.randomWord
-		print("target: \(target)")
+		//print("target: \(target)")
 		
-		wordGuesses.append(WordGuess.emptyGuess(index: 0))
-		wordGuesses.append(WordGuess.emptyGuess(index: 1))
-		wordGuesses.append(WordGuess.emptyGuess(index: 2))
-		wordGuesses.append(WordGuess.emptyGuess(index: 3))
-		wordGuesses.append(WordGuess.emptyGuess(index: 4))
-		wordGuesses.append(WordGuess.emptyGuess(index: 5))
+		for i in 0..<5 {
+			wordGuesses.append(WordGuess.emptyGuess(index: i))
+		}
 	}
 	
 	mutating func acceptKey(_ key: String) {
-		print("acceptKey: \(key)")
+		//print("acceptKey: \(key)")
 		
 		if key == "ENTER" {
 			handleEnterTyped()
@@ -177,7 +174,7 @@ struct Game {
 		currentGuess.letterGuesses[letterIndex] = LetterGuess(id: letterIndex, letter: letter, eval: .blank)
 		wordGuesses[guessIndex] = currentGuess
 		letterIndex += 1
-		print("letterIndex: \(letterIndex), currentGuess: \(currentGuess)")
+		//print("letterIndex: \(letterIndex), currentGuess: \(currentGuess)")
 	}
 	
 	private mutating func handleDeleteTyped() {
@@ -185,10 +182,10 @@ struct Game {
 		guard !solved else { return }
 
 		currentGuess.bad = false
-		currentGuess.letterGuesses[letterIndex - 1] = LetterGuess(id: letterIndex, letter: "", eval: .blank)
+		currentGuess.letterGuesses[letterIndex - 1] = LetterGuess(id: letterIndex - 1, letter: "", eval: .blank)
 		wordGuesses[guessIndex] = currentGuess
 		letterIndex -= 1
-		print("letterIndex: \(letterIndex), currentGuess: \(currentGuess)")
+		//print("letterIndex: \(letterIndex), currentGuess: \(currentGuess)")
 	}
 	
 	private mutating func handleEnterTyped() {
@@ -197,15 +194,14 @@ struct Game {
 
 		let word = currentGuess.word
 		if Dataset.shared.containsWord(word) {
-			print("handleEnterTyped: good word: \(word)")
+			//print("handleEnterTyped: good word: \(word)")
 			let wordGuess = WordGuess.evaluateWord(word, target: target, guessIndex: guessIndex)
 			addNewWordGuess(wordGuess)
 		} else {
-			print("handleEnterTyped: bad word: \(word)")
+			//print("handleEnterTyped: bad word: \(word)")
 			currentGuess.bad = true
 			wordGuesses[guessIndex] = currentGuess
-
-			print("letterIndex: \(letterIndex), currentGuess: \(currentGuess)")
+			//print("letterIndex: \(letterIndex), currentGuess: \(currentGuess)")
 		}
 	}
 	
@@ -223,9 +219,9 @@ struct Game {
 		solved = wordGuess.correct
 
 		let guessNumber = guessIndex + 1
-		print("guess \(guessNumber): \(wordGuess), solved: \(solved)")
-		print("guess \(guessNumber): uniqueLetterGuesses: \(uniqueLetterGuesses)")
-		print()
+//		print("guess \(guessNumber): \(wordGuess), solved: \(solved)")
+//		print("guess \(guessNumber): uniqueLetterGuesses: \(uniqueLetterGuesses)")
+//		print()
 		
 		guessIndex += 1
 		letterIndex = 0
