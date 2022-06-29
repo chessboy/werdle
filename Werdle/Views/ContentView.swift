@@ -32,7 +32,18 @@ struct ContentView: View {
 				}
 				Spacer()
 				KeyboardView(game: $game, width: min(geo.size.width, geo.size.height))
-				Spacer()
+				
+				Button(action: {
+					game = Game()
+				}) {
+
+					Text("Give Up")
+						.appFont(.black, size: 20)
+						.padding()
+				}
+				.overlay(RoundedRectangle(cornerRadius: 7).stroke(Color(.gray), lineWidth: 2))
+				.buttonStyle(ScaleButtonStyle())
+				Spacer(minLength: 50)
 			}
 		}
     }

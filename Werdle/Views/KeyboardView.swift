@@ -97,6 +97,7 @@ struct KeyboardView: View {
 				}
 			}
 		}
+		Spacer()
 	}
 }
 

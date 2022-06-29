@@ -126,26 +126,45 @@ struct WordGuess: Identifiable {
 			} else if wordLetter == targetLetters[i] {
 				eval = .correct
 			}
-			
+
 			letterGuesses.append(LetterGuess(id: i, letter: wordLetter, eval: eval))
 		}
 		
+		letterGuesses = adjustForRepeatedLetters(letterGuesses: letterGuesses)
 		let incorrect = letterGuesses.filter({ $0.eval != .correct }).count > 0
 
 		return WordGuess(id: guessIndex, letterGuesses: letterGuesses, correct: !incorrect)
 	}
 
+	static func adjustForRepeatedLetters(letterGuesses: [LetterGuess]) -> [LetterGuess] {
+		var adjustedLetterGuesses: [LetterGuess] = []
+		
+		// now check for multiple occurrences of the same letter
+		for var letterGuess in letterGuesses {
+			if letterGuess.eval == .wrongPosition {
+				if letterGuesses.filter({ $0.id != letterGuess.id && $0.letter == letterGuess.letter && letterGuess.eval != .missing && $0.id < letterGuess.id }).first != nil {
+					// we have a letter who matches in one position, but not this one
+					letterGuess.eval = .missing
+				}
+			}
+			
+			adjustedLetterGuesses.append(letterGuess)
+		}
+	
+		return adjustedLetterGuesses
+	}
 }
 
 struct Game {
-	var target: String = "HELLO"
+	var target: String = "STARS"
 	var guessIndex: Int = 0
 	var letterIndex: Int = 0
 	var currentGuess: WordGuess = WordGuess.emptyGuess(index: 0)
 	var wordGuesses: [WordGuess] = []
 	var uniqueLetterGuesses: [LetterGuess] = []
 	var solved = false
-	
+	var lost = false
+
 	init() {
 		target = Dataset.shared.randomWord
 		//print("target: \(target)")
@@ -168,8 +187,9 @@ struct Game {
 	}
 	
 	private mutating func handleLetterTyped(_ letter: String) {
+		guard guessIndex < 5 else { return }
 		guard currentGuess.hasEmptyLetters else { return }
-		guard !solved else { return }
+		guard !solved, !lost else { return }
 		
 		currentGuess.letterGuesses[letterIndex] = LetterGuess(id: letterIndex, letter: letter, eval: .blank)
 		wordGuesses[guessIndex] = currentGuess
@@ -179,7 +199,7 @@ struct Game {
 	
 	private mutating func handleDeleteTyped() {
 		guard letterIndex >= 1 else { return }
-		guard !solved else { return }
+		guard !solved, !lost else { return }
 
 		currentGuess.bad = false
 		currentGuess.letterGuesses[letterIndex - 1] = LetterGuess(id: letterIndex - 1, letter: "", eval: .blank)
@@ -190,7 +210,7 @@ struct Game {
 	
 	private mutating func handleEnterTyped() {
 		guard !currentGuess.hasEmptyLetters else { return }
-		guard !solved else { return }
+		guard !solved, !lost else { return }
 
 		let word = currentGuess.word
 		if Dataset.shared.containsWord(word) {
@@ -218,7 +238,7 @@ struct Game {
 		uniqueLetterGuesses = generateUniqueLetterGuesses()
 		solved = wordGuess.correct
 
-		let guessNumber = guessIndex + 1
+//		let guessNumber = guessIndex + 1
 //		print("guess \(guessNumber): \(wordGuess), solved: \(solved)")
 //		print("guess \(guessNumber): uniqueLetterGuesses: \(uniqueLetterGuesses)")
 //		print()
@@ -226,6 +246,10 @@ struct Game {
 		guessIndex += 1
 		letterIndex = 0
 		currentGuess = WordGuess.emptyGuess(index: guessIndex)
+
+		if guessIndex == 5, !solved {
+			lost = true
+		}
 	}
 	
 	static var testGame: Game {
