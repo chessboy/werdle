@@ -19,35 +19,38 @@ struct GameOverView: View {
 		GeometryReader { geo in
 			ZStack {
 				if show {
-					Color.black.opacity(show ? 0.3 : 0).edgesIgnoringSafeArea(.all)
-					HStack(alignment: .center) {
-						Spacer()
-						VStack(alignment: .center, spacing: 10) {
-							
-							Spacer()
-							Text(game.gameOverText)
-							Spacer()
-							
-							Button(action: {
-								withAnimation(.linear(duration: 0.3)) {
-									show = false
-									game = Game()
-								}
-							}) {
+					Color.black.opacity(show ? 0.3 : 0)
+						.edgesIgnoringSafeArea(.all)
+					VStack(alignment: .center, spacing: 5) {
+						Spacer(minLength: 40)
+						HStack(alignment: .center) {
+							VStack(alignment: .center, spacing: 5) {
+								
+								Text(game.gameOverText)
+								Button(action: {
+									withAnimation(.linear(duration: 0.3)) {
+										show = false
+										game = Game()
+									}
+								}) {
 
-								Text("New Game")
-									.appFont(.black, size: 25)
-									.padding()
-							}.buttonStyle(ScaleButtonStyle())
-							Spacer()
+									Text("New Game")
+										.appFont(.black, size: 25)
+										.padding()
+								}.buttonStyle(ScaleButtonStyle())
+							}
+							.frame(maxWidth: 250, maxHeight: 150)
+							.border(Colors.squareEmptyBorder, width: 2)
+							.background(Colors.squareBackground)
+							.shadow(color: Color(white: 0.2, opacity: 1), radius: 20, x: 0, y: 5)
 						}
-						.frame(maxWidth: width - 40, maxHeight: 300)
-						.border(Colors.squareEmptyBorder, width: 2)
-						.background(Colors.squareBackground)
+						Spacer()
+						Spacer()
 						Spacer()
 					}
 				}
 			}
+			
 		}
 	}
 }

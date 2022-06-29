@@ -21,7 +21,7 @@ struct ContentView: View {
 				Text("Werdle")
 					.appFont(.black, size: 25)
 					.padding()
-			
+
 				VStack {
 					SquareView(width: min(geo.size.width, geo.size.height), game: $game)
 					Spacer()
@@ -30,26 +30,37 @@ struct ContentView: View {
 				KeyboardView(game: $game, width: min(geo.size.width, geo.size.height))
 				
 				Button(action: {
-					if game.solved {
-						game = Game()
-					} else {
-						withAnimation(.linear(duration: 0.3)) {
-							showingGameOver.toggle()
-						}
+					withAnimation(.linear(duration: 0.3)) {
+						showingGameOver.toggle()
 					}
 				}) {
 
-					Text(game.solved ? "New Game" : "Give Up")
+					Text("Give Up")
 						.appFont(.black, size: 20)
 						.padding()
 				}
 				.overlay(RoundedRectangle(cornerRadius: 7).stroke(Color(.gray), lineWidth: 2))
 				.buttonStyle(ScaleButtonStyle())
+				.opacity(showingGameOver ? 0 : 1)
 				Spacer(minLength: 50)
 			}
 			GameOverView(game: $game, show: $showingGameOver, width: min(geo.size.width, geo.size.height))
 		}
-    }
+		.onChange(of: game.solved) { solved in
+			if solved {
+				withAnimation(.linear(duration: 0.3)) {
+					showingGameOver.toggle()
+				}
+			}
+		}
+		.onChange(of: game.lost) { lost in
+			if lost {
+				withAnimation(.linear(duration: 0.3)) {
+					showingGameOver.toggle()
+				}
+			}
+		}
+	}
 }
 
 struct ContentView_Previews: PreviewProvider {

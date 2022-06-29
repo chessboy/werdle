@@ -176,7 +176,7 @@ struct Game {
 	
 	var gameOverText: String {
 		if solved {
-			return "Great job!"
+			return "Yes, it's \(target). Great job!"
 		} else {
 			return "The answer was \(target)"
 		}
@@ -259,13 +259,7 @@ struct Game {
 			lost = true
 		}
 	}
-	
-	static var testGame: Game {
-		var game = Game()
-		game.target = "ACORN"
-		return game
-	}
-	
+		
 	func generateUniqueLetterGuesses() -> [LetterGuess] {
 		var uniqueGuesses: [LetterGuess] = []
 				
