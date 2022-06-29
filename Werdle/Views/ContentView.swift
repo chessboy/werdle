@@ -11,33 +11,35 @@ import SwiftUI
 struct ContentView: View {
 	
 	@State var game = Game()
+	@State private var showingGameOver = false
 
 	var body: some View {
 		
 		GeometryReader { geo in
 			VStack(alignment: .center, spacing: 10) {
 				
-				Button(action: {
-					game = Game()
-				}) {
-
-					Text("Werdle")
-						.appFont(.black, size: 25)
-						.padding()
-				}.buttonStyle(ScaleButtonStyle())
-				
+				Text("Werdle")
+					.appFont(.black, size: 25)
+					.padding()
+			
 				VStack {
-					SquareView(game: $game, width: min(geo.size.width, geo.size.height))
+					SquareView(width: min(geo.size.width, geo.size.height), game: $game)
 					Spacer()
 				}
 				Spacer()
 				KeyboardView(game: $game, width: min(geo.size.width, geo.size.height))
 				
 				Button(action: {
-					game = Game()
+					if game.solved {
+						game = Game()
+					} else {
+						withAnimation(.linear(duration: 0.3)) {
+							showingGameOver.toggle()
+						}
+					}
 				}) {
 
-					Text("Give Up")
+					Text(game.solved ? "New Game" : "Give Up")
 						.appFont(.black, size: 20)
 						.padding()
 				}
@@ -45,6 +47,7 @@ struct ContentView: View {
 				.buttonStyle(ScaleButtonStyle())
 				Spacer(minLength: 50)
 			}
+			GameOverView(game: $game, show: $showingGameOver, width: min(geo.size.width, geo.size.height))
 		}
     }
 }

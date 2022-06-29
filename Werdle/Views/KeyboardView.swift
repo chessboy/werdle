@@ -13,11 +13,6 @@ struct KeyboardView: View {
 	@Binding var game: Game
 	var width: CGFloat
 
-	init(game: Binding<Game>, width: CGFloat) {
-		self.width = width
-		self._game = game
-	}
-
 	var body: some View {
 		
 		GeometryReader { geo in

@@ -174,6 +174,14 @@ struct Game {
 		}
 	}
 	
+	var gameOverText: String {
+		if solved {
+			return "Great job!"
+		} else {
+			return "The answer was \(target)"
+		}
+	}
+	
 	mutating func acceptKey(_ key: String) {
 		//print("acceptKey: \(key)")
 		
