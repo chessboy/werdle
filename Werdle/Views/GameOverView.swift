@@ -24,7 +24,7 @@ struct GameOverView: View {
 					VStack(alignment: .center, spacing: 5) {
 						Spacer(minLength: 40)
 						HStack(alignment: .center) {
-							VStack(alignment: .center, spacing: 5) {
+							VStack(alignment: .center, spacing: 25) {
 								
 								Text(game.gameOverText)
 								Button(action: {
@@ -35,9 +35,12 @@ struct GameOverView: View {
 								}) {
 
 									Text("New Game")
-										.appFont(.black, size: 25)
-										.padding()
-								}.buttonStyle(ScaleButtonStyle())
+										.appFont(.black, size: 16)
+										.padding([.top, .bottom], 10)
+										.padding([.leading, .trailing], 20)
+								}
+								.overlay(RoundedRectangle(cornerRadius: 7).stroke(Color(.gray), lineWidth: 2))
+								.buttonStyle(ScaleButtonStyle())
 							}
 							.frame(maxWidth: 250, maxHeight: 150)
 							.border(Colors.squareEmptyBorder, width: 2)

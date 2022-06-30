@@ -26,7 +26,7 @@ struct SquareView: View {
 								.frame(width: width/6, height: width/6, alignment: .center)
 							Text(letterGuess.letter)
 								.appFont(.black, size: 45)
-								.foregroundColor(.white)
+								.foregroundColor(letterGuess.eval == .blank ? Colors.textDark : Colors.textLight)
 						}
 					}
 				}

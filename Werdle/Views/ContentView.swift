@@ -36,8 +36,9 @@ struct ContentView: View {
 				}) {
 
 					Text("Give Up")
-						.appFont(.black, size: 20)
-						.padding()
+						.appFont(.black, size: 16)
+						.padding([.top, .bottom], 10)
+						.padding([.leading, .trailing], 20)
 				}
 				.overlay(RoundedRectangle(cornerRadius: 7).stroke(Color(.gray), lineWidth: 2))
 				.buttonStyle(ScaleButtonStyle())
