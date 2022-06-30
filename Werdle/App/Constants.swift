@@ -2,7 +2,7 @@
 //  Positions.swift
 //  Werdle
 //
-//  Created by Robert Silverman on 4/4/20.
+//  Created by Rob Silverman on 6/26/22.
 //  Copyright © 2022 Robert Silverman. All rights reserved.
 //
 
@@ -11,11 +11,6 @@ import Foundation
 struct Constants {
 		
 	static let wordLength = 5
-
-	enum SystemIcon: String {
-		case randomize = "shuffle"
-		case flip = "arrow.2.squarepath"
-	}
 	
 	struct Keyboard {
 		static var row1: [String] = ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"]

@@ -17,7 +17,7 @@ struct WordGuess: Identifiable {
 	static func emptyGuess(index: Int) -> WordGuess {
 		var letterGuesses: [LetterGuess] = []
 		
-		for i in 0..<5 {
+        for i in 0..<Constants.wordLength {
 			letterGuesses.append(LetterGuess(id: i, letter: "", eval: .blank))
 		}
 		
@@ -34,13 +34,13 @@ struct WordGuess: Identifiable {
 	
 	static func evaluateWord(_ word: String, target: String, guessIndex: Int) -> WordGuess {
 		
-		guard word.count == 5 else {
-			print("word.count != 5")
+		guard word.count == Constants.wordLength else {
+			print("word.count != \(Constants.wordLength)")
 			return WordGuess.emptyGuess(index: guessIndex)
 		}
 		
-		guard target.count == 5 else {
-			print("target.count != 5")
+		guard target.count == Constants.wordLength else {
+			print("target.count != \(Constants.wordLength)")
 			return WordGuess.emptyGuess(index: guessIndex)
 		}
 
@@ -51,7 +51,7 @@ struct WordGuess: Identifiable {
 
 		var letterGuesses: [LetterGuess] = []
 		
-		for i in 0..<5 {
+		for i in 0..<Constants.wordLength {
 			var eval: LetterEval = .wrongPosition
 			let wordLetter = wordLetters[i]
 

@@ -22,7 +22,7 @@ struct Game {
 		target = Dataset.shared.randomWord
 		//print("target: \(target)")
 		
-		for i in 0..<5 {
+		for i in 0..<Constants.wordLength {
 			wordGuesses.append(WordGuess.emptyGuess(index: i))
 		}
 	}
@@ -48,7 +48,7 @@ struct Game {
 	}
 	
 	private mutating func handleLetterTyped(_ letter: String) {
-		guard guessIndex < 5 else { return }
+		guard guessIndex < Constants.wordLength else { return }
 		guard currentGuess.hasEmptyLetters else { return }
 		guard !solved, !lost else { return }
 		
@@ -108,7 +108,7 @@ struct Game {
 		letterIndex = 0
 		currentGuess = WordGuess.emptyGuess(index: guessIndex)
 
-		if guessIndex == 5, !solved {
+		if guessIndex == Constants.wordLength, !solved {
 			lost = true
 		}
 	}
