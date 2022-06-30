@@ -12,6 +12,7 @@ struct ContentView: View {
 	
 	@State var game = Game()
 	@State private var showingGameOver = false
+	@State private var showingAlert = false
 
 	var body: some View {
 		
@@ -31,7 +32,7 @@ struct ContentView: View {
 				
 				Button(action: {
 					withAnimation(.linear(duration: 0.3)) {
-						showingGameOver.toggle()
+						showingAlert.toggle()
 					}
 				}) {
 
@@ -39,6 +40,12 @@ struct ContentView: View {
 						.appFont(.black, size: 16)
 						.padding([.top, .bottom], 10)
 						.padding([.leading, .trailing], 20)
+						.alert("Are you sure?", isPresented: $showingAlert) {
+							Button("Cancel", role: .cancel) { }
+							Button("Give Up", role: .destructive) {
+								showingGameOver.toggle()
+							}
+						}
 				}
 				.overlay(RoundedRectangle(cornerRadius: 7).stroke(Color(.gray), lineWidth: 2))
 				.buttonStyle(ScaleButtonStyle())
@@ -69,7 +76,7 @@ struct ContentView_Previews: PreviewProvider {
 		
 //		ForEach(["iPhone 11 Pro Max", "iPhone 11 Pro", "iPhone 8 Plus", "iPhone 8"], id: \.self) { deviceName in
 
-		ForEach(["iPhone 11 Pro Max", "iPhone 11 Pro"], id: \.self) { deviceName in
+		ForEach(["iPhone 11 Pro Max", "iPhone 11 Pro", "iPhone 8"], id: \.self) { deviceName in
 			ContentView()
 				.previewDevice(PreviewDevice(rawValue: deviceName))
 				.previewDisplayName(deviceName)

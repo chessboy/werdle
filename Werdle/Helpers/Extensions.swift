@@ -48,6 +48,12 @@ extension String {
     }
 }
 
+extension String {
+	func numberOfOccurrencesOf(string: String) -> Int {
+		return self.components(separatedBy:string).count - 1
+	}
+}
+
 extension StringProtocol {
     func indexDistance(of element: Element) -> Int? { firstIndex(of: element)?.distance(in: self) }
     func indexDistance<S: StringProtocol>(of string: S) -> Int? { range(of: string)?.lowerBound.distance(in: self) }

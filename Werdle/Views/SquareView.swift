@@ -51,7 +51,6 @@ struct SquareView_Previews: PreviewProvider {
 				VStack {
 					Spacer()
 					SquareView(width: min(geo.size.width, geo.size.height), game: self.$game)
-						.frame(width: min(geo.size.width, geo.size.height))
 						.frame(height: min(geo.size.width, geo.size.height))
 						.preferredColorScheme(.dark)
 

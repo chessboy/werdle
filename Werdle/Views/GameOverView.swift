@@ -76,7 +76,6 @@ struct GameOverView_Previews: PreviewProvider {
 					Spacer()
 					GameOverView(game: self.$game, show: self.$show, width: min(geo.size.width, geo.size.height))
 						.frame(width: min(geo.size.width, geo.size.height))
-						.frame(height: min(geo.size.width, geo.size.height))
 						.preferredColorScheme(.dark)
 					Spacer()
 				}

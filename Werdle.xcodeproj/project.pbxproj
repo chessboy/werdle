@@ -23,9 +23,12 @@
 		D4661FDA243A2ED60077D091 /* RotatableStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4661FD9243A2ED60077D091 /* RotatableStack.swift */; };
 		D46791872439963800D464A3 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D46791862439963800D464A3 /* Default-568h@2x.png */; };
 		D474A265286C8F080060255B /* GameOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D474A264286C8F080060255B /* GameOverView.swift */; };
+		D474A267286D41190060255B /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = D474A266286D41190060255B /* Game.swift */; };
+		D474A269286D41630060255B /* WordGuess.swift in Sources */ = {isa = PBXBuildFile; fileRef = D474A268286D41630060255B /* WordGuess.swift */; };
+		D474A26B286D41790060255B /* LetterGuess.swift in Sources */ = {isa = PBXBuildFile; fileRef = D474A26A286D41790060255B /* LetterGuess.swift */; };
+		D474A26D286D41880060255B /* LetterEval.swift in Sources */ = {isa = PBXBuildFile; fileRef = D474A26C286D41880060255B /* LetterEval.swift */; };
 		D481DED8243CBF1F00EE01FC /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D481DED6243CBF1F00EE01FC /* SafariView.swift */; };
 		D481DED9243CBF1F00EE01FC /* CustomSafariViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D481DED7243CBF1F00EE01FC /* CustomSafariViewController.swift */; };
-		D4898C0828693BDC009DDEB3 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4898C0728693BDC009DDEB3 /* Model.swift */; };
 		D4898C0A28694A4E009DDEB3 /* KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4898C0928694A4E009DDEB3 /* KeyboardView.swift */; };
 		D4898C0C286AAC50009DDEB3 /* 5_letters.csv in Resources */ = {isa = PBXBuildFile; fileRef = D4898C0B286AAC50009DDEB3 /* 5_letters.csv */; };
 		D4898C0E286AACAA009DDEB3 /* Dataset.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4898C0D286AACAA009DDEB3 /* Dataset.swift */; };
@@ -69,9 +72,12 @@
 		D4661FD9243A2ED60077D091 /* RotatableStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotatableStack.swift; sourceTree = "<group>"; };
 		D46791862439963800D464A3 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		D474A264286C8F080060255B /* GameOverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverView.swift; sourceTree = "<group>"; };
+		D474A266286D41190060255B /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		D474A268286D41630060255B /* WordGuess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordGuess.swift; sourceTree = "<group>"; };
+		D474A26A286D41790060255B /* LetterGuess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterGuess.swift; sourceTree = "<group>"; };
+		D474A26C286D41880060255B /* LetterEval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterEval.swift; sourceTree = "<group>"; };
 		D481DED6243CBF1F00EE01FC /* SafariView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
 		D481DED7243CBF1F00EE01FC /* CustomSafariViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSafariViewController.swift; sourceTree = "<group>"; };
-		D4898C0728693BDC009DDEB3 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		D4898C0928694A4E009DDEB3 /* KeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardView.swift; sourceTree = "<group>"; };
 		D4898C0B286AAC50009DDEB3 /* 5_letters.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 5_letters.csv; sourceTree = "<group>"; };
 		D4898C0D286AACAA009DDEB3 /* Dataset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dataset.swift; sourceTree = "<group>"; };
@@ -219,7 +225,10 @@
 		D4898C0628693BB9009DDEB3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				D4898C0728693BDC009DDEB3 /* Model.swift */,
+				D474A26C286D41880060255B /* LetterEval.swift */,
+				D474A26A286D41790060255B /* LetterGuess.swift */,
+				D474A268286D41630060255B /* WordGuess.swift */,
+				D474A266286D41190060255B /* Game.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -334,21 +343,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				D481DED8243CBF1F00EE01FC /* SafariView.swift in Sources */,
-				D4898C0828693BDC009DDEB3 /* Model.swift in Sources */,
 				D4661FD82439AB550077D091 /* Colors.swift in Sources */,
 				D4556F26243954340025E7D3 /* Extensions.swift in Sources */,
 				D4556F0124394C550025E7D3 /* AppDelegate.swift in Sources */,
 				D4556F0324394C550025E7D3 /* SceneDelegate.swift in Sources */,
+				D474A26B286D41790060255B /* LetterGuess.swift in Sources */,
 				D4A67FB524395C5C006E8303 /* FontFactory.swift in Sources */,
+				D474A269286D41630060255B /* WordGuess.swift in Sources */,
 				D481DED9243CBF1F00EE01FC /* CustomSafariViewController.swift in Sources */,
 				D4556F2324394F250025E7D3 /* Constants.swift in Sources */,
 				D4898C0E286AACAA009DDEB3 /* Dataset.swift in Sources */,
+				D474A267286D41190060255B /* Game.swift in Sources */,
 				D4898C0A28694A4E009DDEB3 /* KeyboardView.swift in Sources */,
 				D4556F0524394C550025E7D3 /* ContentView.swift in Sources */,
 				D4FAD03E243A7CED003CE5B6 /* SquareView.swift in Sources */,
 				D4661FDA243A2ED60077D091 /* RotatableStack.swift in Sources */,
 				D444A1BD243D803F00481B44 /* ActionButton.swift in Sources */,
 				D474A265286C8F080060255B /* GameOverView.swift in Sources */,
+				D474A26D286D41880060255B /* LetterEval.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
