@@ -19,7 +19,7 @@ struct Game {
 	var lost = false
 
 	init() {
-		target = "RENEW"//Dataset.shared.randomWord
+		target = Dataset.shared.randomWord
 		//print("target: \(target)")
 		
 		for i in 0..<Constants.maxGuesses {
