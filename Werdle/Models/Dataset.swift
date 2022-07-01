@@ -26,16 +26,15 @@ class Dataset {
 	}
 	
 	private func loadDataSet() {
-		guard let csvPath = Bundle.main.path(forResource: Constants.datasetFilename, ofType: "csv") else { return }
+		guard let csvPath = Bundle.main.path(forResource: Constants.datasetFilename, ofType: "txt") else { return }
 
 		do {
 			let data = try String(contentsOfFile: csvPath, encoding: .utf8)
 			var rows = data.components(separatedBy: .whitespacesAndNewlines)
 			rows = rows.filter({ !$0.isEmpty })
 			
-			for row in rows {
-				let word = row.components(separatedBy: ",").joined()
-				// print("row: -|\(row)|-, word: \(word)")
+			for word in rows {
+				//print("word: \(word)")
 				words.append(word.uppercased())
 			}
 			
