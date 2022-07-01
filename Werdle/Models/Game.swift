@@ -21,13 +21,17 @@ struct Game {
 
 	init() {
 		target = Dataset.shared.randomWord
-		//print("target: \(target)")
+        //print("target: \(target)")
 		
 		for i in 0..<Constants.maxGuesses {
 			wordGuesses.append(WordGuess.emptyGuess(index: i))
 		}
 	}
 	
+    var gameOver: Bool {
+        return solved || lost
+    }
+    
 	var gameOverText: String {
 		if solved {
 			return "Yes, it's \(target). Great job!"
@@ -49,7 +53,7 @@ struct Game {
 	}
 	
 	private mutating func handleLetterTyped(_ letter: String) {
-		guard !solved, !lost else { return }
+		guard !gameOver else { return }
 		guard guessIndex < wordGuesses.count else { return }
 		guard letterIndex < currentGuess.letterGuesses.count else { return }
 		guard currentGuess.hasEmptyLetters else { return }
@@ -61,7 +65,7 @@ struct Game {
 	}
 	
 	private mutating func handleDeleteTyped() {
-		guard !solved, !lost else { return }
+		guard !gameOver else { return }
 		guard letterIndex > 0 else { return }
 
 		currentGuess.bad = false
@@ -73,7 +77,7 @@ struct Game {
 	}
 	
 	private mutating func handleEnterTyped() {
-		guard !solved, !lost else { return }
+		guard !gameOver else { return }
 		guard !currentGuess.hasEmptyLetters else { return }
 
 		let word = currentGuess.word
@@ -106,11 +110,12 @@ struct Game {
 //		print("guess \(guessIndex + 1): uniqueLetterGuesses: \(uniqueLetterGuesses)")
 //		print()
 		
-		if guessIndex == Constants.maxGuesses - 1, !solved {
+		if guessIndex == Constants.maxGuesses - 1 {
 			lost = true
-			return
 		}
 		
+        guard !gameOver else { return }
+
 		guessIndex += 1
 		letterIndex = 0
 		currentGuess = WordGuess.emptyGuess(index: guessIndex)
