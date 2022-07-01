@@ -19,7 +19,7 @@ struct Game {
 	var lost = false
 
 	init() {
-		target = Dataset.shared.randomWord
+		target = "RENEW"//Dataset.shared.randomWord
 		//print("target: \(target)")
 		
 		for i in 0..<Constants.maxGuesses {
@@ -49,7 +49,7 @@ struct Game {
 	
 	private mutating func handleLetterTyped(_ letter: String) {
 		guard !solved, !lost else { return }
-		guard guessIndex < Constants.maxGuesses else { return }
+		guard guessIndex < wordGuesses.count else { return }
 		guard letterIndex < currentGuess.letterGuesses.count else { return }
 		guard currentGuess.hasEmptyLetters else { return }
 		

@@ -27,6 +27,7 @@
 		D474A26B286D41790060255B /* LetterGuess.swift in Sources */ = {isa = PBXBuildFile; fileRef = D474A26A286D41790060255B /* LetterGuess.swift */; };
 		D474A26D286D41880060255B /* LetterEval.swift in Sources */ = {isa = PBXBuildFile; fileRef = D474A26C286D41880060255B /* LetterEval.swift */; };
 		D474A26F286EA71E0060255B /* ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D474A26E286EA71E0060255B /* ButtonStyle.swift */; };
+		D474A273286EBE250060255B /* read_me_image.png in Resources */ = {isa = PBXBuildFile; fileRef = D474A272286EBE250060255B /* read_me_image.png */; };
 		D481DED8243CBF1F00EE01FC /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D481DED6243CBF1F00EE01FC /* SafariView.swift */; };
 		D481DED9243CBF1F00EE01FC /* CustomSafariViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D481DED7243CBF1F00EE01FC /* CustomSafariViewController.swift */; };
 		D4898C0A28694A4E009DDEB3 /* KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4898C0928694A4E009DDEB3 /* KeyboardView.swift */; };
@@ -76,6 +77,7 @@
 		D474A26A286D41790060255B /* LetterGuess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterGuess.swift; sourceTree = "<group>"; };
 		D474A26C286D41880060255B /* LetterEval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterEval.swift; sourceTree = "<group>"; };
 		D474A26E286EA71E0060255B /* ButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyle.swift; sourceTree = "<group>"; };
+		D474A272286EBE250060255B /* read_me_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = read_me_image.png; sourceTree = "<group>"; };
 		D481DED6243CBF1F00EE01FC /* SafariView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
 		D481DED7243CBF1F00EE01FC /* CustomSafariViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSafariViewController.swift; sourceTree = "<group>"; };
 		D4898C0928694A4E009DDEB3 /* KeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardView.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 		D4556EF424394C550025E7D3 = {
 			isa = PBXGroup;
 			children = (
+				D474A272286EBE250060255B /* read_me_image.png */,
 				D4FAD038243A35D5003CE5B6 /* README.md */,
 				D4FAD037243A3599003CE5B6 /* .gitignore */,
 				D46791862439963800D464A3 /* Default-568h@2x.png */,
@@ -317,6 +320,7 @@
 				D4A67FB624395C90006E8303 /* Lato-Black.ttf in Resources */,
 				D46791872439963800D464A3 /* Default-568h@2x.png in Resources */,
 				D4A67FBA24395C90006E8303 /* Lato-Semibold.ttf in Resources */,
+				D474A273286EBE250060255B /* read_me_image.png in Resources */,
 				D4A67FB724395C90006E8303 /* Lato-Bold.ttf in Resources */,
 				D4A67FBB24395C90006E8303 /* OFL.txt in Resources */,
 				D4556F0D24394C570025E7D3 /* LaunchScreen.storyboard in Resources */,
