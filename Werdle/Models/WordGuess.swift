@@ -14,6 +14,7 @@ struct WordGuess: Identifiable {
 	var correct: Bool = false
 	var bad: Bool = false
 	
+	// placeholder for laying out ui
 	static func emptyGuess(index: Int) -> WordGuess {
 		var letterGuesses: [LetterGuess] = []
 		
@@ -24,16 +25,18 @@ struct WordGuess: Identifiable {
 		return WordGuess(id: index, letterGuesses: letterGuesses, correct: false)
 	}
 	
+	// the guesses joined as a single string
 	var word: String {
 		return letterGuesses.map({ $0.letter }).joined()
 	}
 	
+	// true if any letter guesses are empty
 	var hasEmptyLetters: Bool {
 		return letterGuesses.filter({ $0.letter.isEmpty }).count > 0
 	}
 	
+	// return an evaluated WordGuess
 	static func evaluateWord(_ word: String, target: String, guessIndex: Int) -> WordGuess {
-		
 		guard word.count == Constants.wordLength else {
 			print("word.count != \(Constants.wordLength)")
 			return WordGuess.emptyGuess(index: guessIndex)
@@ -43,12 +46,9 @@ struct WordGuess: Identifiable {
 			print("target.count != \(Constants.wordLength)")
 			return WordGuess.emptyGuess(index: guessIndex)
 		}
-
-		//print("evaluate word: \(word), target: \(target)")
 		
 		let wordLetters = word.map { String($0) }
 		let targetLetters = target.map { String($0) }
-
 		var letterGuesses: [LetterGuess] = []
 		
 		for i in 0..<Constants.wordLength {
@@ -71,20 +71,20 @@ struct WordGuess: Identifiable {
 		return wordGuess
 	}
 
+	// check for multiple wrong positions of the same letter and prune accordingly to match target count
 	private mutating func cleanupWrongPositionEvals(target: String) {
-		// check for multiple wrong positions of the same letter and prune accordingly to match target count
 		for var letterGuess in letterGuesses.reversed() {
 			if letterGuess.eval == .wrongPosition {
 				
-				let letterInTargetCount = target.numberOfOccurrencesOf(string: letterGuess.letter)
-				let letterInGuessCorrectCount = letterGuesses.filter{ $0.eval == .correct && $0.letter == letterGuess.letter }.count
-				let letterInGuessWrongPositionCount = letterGuesses.filter{ $0.eval == .wrongPosition && $0.letter == letterGuess.letter }.count
+				let targetCount = target.numberOfOccurrencesOf(string: letterGuess.letter)
+				let correctCount = letterGuesses.filter{ $0.eval == .correct && $0.letter == letterGuess.letter }.count
+				let wrongPositionCount = letterGuesses.filter{ $0.eval == .wrongPosition && $0.letter == letterGuess.letter }.count
 
-				//print("target \(letterGuess.letter) count: \(letterInTargetCount)")
-				//print("guesses correct \(letterGuess.letter) count: \(letterInGuessCorrectCount)")
-				//print("guesses wrong \(letterGuess.letter) count: \(letterInGuessWrongPositionCount)")
+				//print("target \(letterGuess.letter) count: \(targetCount)")
+				//print("guesses correct \(letterGuess.letter) count: \(correctCount)")
+				//print("guesses wrong \(letterGuess.letter) count: \(wrongPositionCount)")
 
-				if letterInTargetCount - letterInGuessCorrectCount < letterInGuessWrongPositionCount {
+				if targetCount - correctCount < wrongPositionCount {
 					//print("marking: \(letterGuess) as missing")
 					letterGuess.eval = .missing
 					letterGuesses[letterGuess.id] = letterGuess

@@ -22,7 +22,9 @@ import SwiftUI
 //		 .appFont(.semibold, size: 18)
 //
 class FontFactory {
-	
+	private static let fontFamiliy = "Lato"
+	private static var cache = [String: Font]()
+
 	enum FontStyle: String, CustomStringConvertible {
 		case black, bold, semibold, regular, light
 		
@@ -30,9 +32,6 @@ class FontFactory {
 			return rawValue.capitalized
 		}
 	}
-
-	static let fontFamiliy = "Lato"
-	private static var cache = [String: Font]()
 		
 	static func font(_ style: FontStyle, size: CGFloat) -> Font {
 		let key = makeKey(style, size: size)

@@ -31,11 +31,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	}
 
 	// helpers
-	static func afterDelay
-		(_ delay: Double, closure: @escaping ()->()) {
-		DispatchQueue.main.asyncAfter( deadline: DispatchTime.now() + Double(Int64(delay * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC),
-		                execute: closure
-		)
+	static func afterDelay(_ delay: Double, closure: @escaping ()->()) {
+		DispatchQueue.main.asyncAfter( deadline: DispatchTime.now() + Double(Int64(delay * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: closure)
 	}
 }
 
@@ -45,14 +42,8 @@ extension UINavigationController {
         super.viewDidLoad()
         
         let appearance = UINavigationBarAppearance()
-        
-		if let font = UIFont(name: "Lato-Bold", size: 20) {
-			appearance.titleTextAttributes = [.font: font]
-		}
-		if let font = UIFont(name: "Lato-Black", size: 30) {
-			appearance.largeTitleTextAttributes = [.font: font]
-		}
-
+		appearance.titleTextAttributes = [.font: FontFactory.font(.bold, size: 20)]
+		appearance.largeTitleTextAttributes = [.font: FontFactory.font(.black, size: 30)]
 		navigationBar.standardAppearance = appearance
     }
 }

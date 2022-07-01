@@ -23,56 +23,36 @@ extension String {
 		let rightPadded = self.padding(toLength:max(count,paddedLength), withPad:pad, startingAt:padStart)
 		return "".padding(toLength:paddedLength, withPad:rightPadded, startingAt:(paddedLength+count)/2 % paddedLength)
 	}
-}
-
-struct ScaleButtonStyle: ButtonStyle {
-	var scale: CGFloat = 1.2
-	func makeBody(configuration: Self.Configuration) -> some View {
-		configuration.label
-			.scaleEffect(configuration.isPressed ? scale : 1.0)
+	
+	subscript (bounds: CountableClosedRange<Int>) -> String {
+		let start = index(startIndex, offsetBy: bounds.lowerBound)
+		let end = index(startIndex, offsetBy: bounds.upperBound)
+		return String(self[start...end])
 	}
-}
 
-
-extension String {
-    subscript (bounds: CountableClosedRange<Int>) -> String {
-        let start = index(startIndex, offsetBy: bounds.lowerBound)
-        let end = index(startIndex, offsetBy: bounds.upperBound)
-        return String(self[start...end])
-    }
-
-    subscript (bounds: CountableRange<Int>) -> String {
-        let start = index(startIndex, offsetBy: bounds.lowerBound)
-        let end = index(startIndex, offsetBy: bounds.upperBound)
-        return String(self[start..<end])
-    }
-}
-
-extension String {
+	subscript (bounds: CountableRange<Int>) -> String {
+		let start = index(startIndex, offsetBy: bounds.lowerBound)
+		let end = index(startIndex, offsetBy: bounds.upperBound)
+		return String(self[start..<end])
+	}
+	
 	func numberOfOccurrencesOf(string: String) -> Int {
 		return self.components(separatedBy:string).count - 1
 	}
 }
 
 extension StringProtocol {
-    func indexDistance(of element: Element) -> Int? { firstIndex(of: element)?.distance(in: self) }
-    func indexDistance<S: StringProtocol>(of string: S) -> Int? { range(of: string)?.lowerBound.distance(in: self) }
-}
-extension Collection {
-    func distance(to index: Index) -> Int { distance(from: startIndex, to: index) }
-}
-extension String.Index {
-    func distance<S: StringProtocol>(in string: S) -> Int { string.distance(to: self) }
-}
+	func indexDistance(of element: Element) -> Int? { firstIndex(of: element)?.distance(in: self) }
+	func indexDistance<S: StringProtocol>(of string: S) -> Int? { range(of: string)?.lowerBound.distance(in: self) }
 
-
-extension StringProtocol {
     func index<S: StringProtocol>(of string: S, options: String.CompareOptions = []) -> Index? {
         range(of: string, options: options)?.lowerBound
     }
+	
     func endIndex<S: StringProtocol>(of string: S, options: String.CompareOptions = []) -> Index? {
         range(of: string, options: options)?.upperBound
     }
+	
     func indices<S: StringProtocol>(of string: S, options: String.CompareOptions = []) -> [Index] {
         var indices: [Index] = []
         var startIndex = self.startIndex
@@ -97,4 +77,12 @@ extension StringProtocol {
         }
         return result
     }
+}
+
+extension Collection {
+	func distance(to index: Index) -> Int { distance(from: startIndex, to: index) }
+}
+
+extension String.Index {
+	func distance<S: StringProtocol>(in string: S) -> Int { string.distance(to: self) }
 }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct LetterGuess: Identifiable, CustomStringConvertible {
+struct LetterGuess: Identifiable, CustomStringConvertible, Comparable {
 	var id: Int = 0
 	var letter: String = ""
 	var eval: LetterEval = .missing
@@ -16,10 +16,8 @@ struct LetterGuess: Identifiable, CustomStringConvertible {
 	var description: String {
 		return "\(id): \(letter == "" ? "_" : letter):\(eval)"
 	}
-}
-
-extension LetterGuess: Comparable {
+	
 	static func < (lhs: LetterGuess, rhs: LetterGuess) -> Bool {
-		return lhs.eval.priority < rhs.eval.priority
+		return lhs.eval < rhs.eval
 	}
 }

@@ -11,7 +11,9 @@ import Foundation
 struct Constants {
 		
 	static let wordLength = 5
-	
+	static let maxGuesses = 6
+	static let datasetFilename = "5_letters"
+
 	struct Keyboard {
 		static var row1: [String] = ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"]
 		static var row2: [String] = ["A", "S", "D", "F", "G", "H", "J", "K", "L"]

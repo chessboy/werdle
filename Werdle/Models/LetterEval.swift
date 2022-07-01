@@ -8,8 +8,8 @@
 
 import SwiftUI
 
-enum LetterEval: CustomStringConvertible {
-	case blank
+enum LetterEval: Int, Comparable, CustomStringConvertible {
+	case blank = 0
 	case missing
 	case wrongPosition
 	case correct
@@ -41,18 +41,7 @@ enum LetterEval: CustomStringConvertible {
 		}
 	}
 	
-	var priority: Int {
-		switch self {
-		case .blank: return 0
-		case .missing: return 1
-		case .wrongPosition: return 2
-		case .correct: return 3
-		}
-	}
-}
-
-extension LetterEval: Comparable {
 	static func < (lhs: LetterEval, rhs: LetterEval) -> Bool {
-		return lhs.priority < rhs.priority
+		return lhs.rawValue < rhs.rawValue
 	}
 }

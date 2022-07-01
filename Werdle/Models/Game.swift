@@ -22,7 +22,7 @@ struct Game {
 		target = Dataset.shared.randomWord
 		//print("target: \(target)")
 		
-		for i in 0..<Constants.wordLength {
+		for i in 0..<Constants.maxGuesses {
 			wordGuesses.append(WordGuess.emptyGuess(index: i))
 		}
 	}
@@ -48,9 +48,10 @@ struct Game {
 	}
 	
 	private mutating func handleLetterTyped(_ letter: String) {
-		guard guessIndex < Constants.wordLength else { return }
-		guard currentGuess.hasEmptyLetters else { return }
 		guard !solved, !lost else { return }
+		guard guessIndex < Constants.maxGuesses else { return }
+		guard letterIndex < currentGuess.letterGuesses.count else { return }
+		guard currentGuess.hasEmptyLetters else { return }
 		
 		currentGuess.letterGuesses[letterIndex] = LetterGuess(id: letterIndex, letter: letter, eval: .blank)
 		wordGuesses[guessIndex] = currentGuess
@@ -59,8 +60,8 @@ struct Game {
 	}
 	
 	private mutating func handleDeleteTyped() {
-		guard letterIndex >= 1 else { return }
 		guard !solved, !lost else { return }
+		guard letterIndex > 0 else { return }
 
 		currentGuess.bad = false
 		currentGuess.letterGuesses[letterIndex - 1] = LetterGuess(id: letterIndex - 1, letter: "", eval: .blank)
@@ -70,8 +71,8 @@ struct Game {
 	}
 	
 	private mutating func handleEnterTyped() {
-		guard !currentGuess.hasEmptyLetters else { return }
 		guard !solved, !lost else { return }
+		guard !currentGuess.hasEmptyLetters else { return }
 
 		let word = currentGuess.word
 		if Dataset.shared.containsWord(word) {
@@ -94,23 +95,22 @@ struct Game {
 	}
 		
 	mutating func addNewWordGuess(_ wordGuess: WordGuess) {
-		
 		wordGuesses[guessIndex] = wordGuess
 		uniqueLetterGuesses = generateUniqueLetterGuesses()
 		solved = wordGuess.correct
 
-//		let guessNumber = guessIndex + 1
-//		print("guess \(guessNumber): \(wordGuess), solved: \(solved)")
-//		print("guess \(guessNumber): uniqueLetterGuesses: \(uniqueLetterGuesses)")
+//		print("guess \(guessIndex + 1): \(wordGuess), solved: \(solved)")
+//		print("guess \(guessIndex + 1): uniqueLetterGuesses: \(uniqueLetterGuesses)")
 //		print()
+		
+		if guessIndex == Constants.maxGuesses - 1, !solved {
+			lost = true
+			return
+		}
 		
 		guessIndex += 1
 		letterIndex = 0
 		currentGuess = WordGuess.emptyGuess(index: guessIndex)
-
-		if guessIndex == Constants.wordLength, !solved {
-			lost = true
-		}
 	}
 		
 	func generateUniqueLetterGuesses() -> [LetterGuess] {

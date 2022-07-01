@@ -38,7 +38,6 @@ struct KeyboardView: View {
 							}
 
 						}.buttonStyle(ScaleButtonStyle())
-
 					}
 					Spacer()
 				}
@@ -61,7 +60,6 @@ struct KeyboardView: View {
 										.appFont(.black, size: 15)
 										.foregroundColor(.white)
 							}
-
 						}.buttonStyle(ScaleButtonStyle())
 					}
 					Spacer()
@@ -85,7 +83,6 @@ struct KeyboardView: View {
 										.appFont(.black, size: 15)
 										.foregroundColor(.white)
 							}
-
 						}.buttonStyle(ScaleButtonStyle())
 					}
 					Spacer()

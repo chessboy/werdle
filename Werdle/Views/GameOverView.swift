@@ -22,7 +22,7 @@ struct GameOverView: View {
 					Color.black.opacity(show ? 0.3 : 0)
 						.edgesIgnoringSafeArea(.all)
 					VStack(alignment: .center, spacing: 5) {
-						Spacer(minLength: 40)
+						Spacer()
 						HStack(alignment: .center) {
 							VStack(alignment: .center, spacing: 25) {
 								
@@ -42,14 +42,13 @@ struct GameOverView: View {
 								.overlay(RoundedRectangle(cornerRadius: 7).stroke(Color(.gray), lineWidth: 2))
 								.buttonStyle(ScaleButtonStyle())
 							}
-							.frame(maxWidth: 250, maxHeight: 150)
+							.frame(maxWidth: width-(width/12), maxHeight: 180)
 							.border(Colors.squareEmptyBorder, width: 2)
 							.background(Colors.squareBackground)
 							.shadow(color: Color(white: 0.2, opacity: 1), radius: 20, x: 0, y: 5)
 						}
 						Spacer()
-						Spacer()
-						Spacer()
+							.frame(height: 80)
 					}
 				}
 			}
