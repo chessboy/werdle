@@ -17,6 +17,7 @@ struct Game {
 	var uniqueLetterGuesses: [LetterGuess] = []
 	var solved = false
 	var lost = false
+    var lastWordWasBad = false
 
 	init() {
 		target = Dataset.shared.randomWord
@@ -64,6 +65,7 @@ struct Game {
 		guard letterIndex > 0 else { return }
 
 		currentGuess.bad = false
+        lastWordWasBad = false
 		currentGuess.letterGuesses[letterIndex - 1] = LetterGuess(id: letterIndex - 1, letter: "", eval: .blank)
 		wordGuesses[guessIndex] = currentGuess
 		letterIndex -= 1
@@ -82,6 +84,7 @@ struct Game {
 		} else {
 			//print("handleEnterTyped: bad word: \(word)")
 			currentGuess.bad = true
+            lastWordWasBad = true
 			wordGuesses[guessIndex] = currentGuess
 			//print("letterIndex: \(letterIndex), currentGuess: \(currentGuess)")
 		}

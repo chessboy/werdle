@@ -41,6 +41,7 @@
 		D4A67FBA24395C90006E8303 /* Lato-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4A67FA324395C17006E8303 /* Lato-Semibold.ttf */; };
 		D4A67FBB24395C90006E8303 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = D4A67FA624395C17006E8303 /* OFL.txt */; };
 		D4FAD03E243A7CED003CE5B6 /* SquareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FAD03D243A7CED003CE5B6 /* SquareView.swift */; };
+		E8837762286F41F40060C87B /* LetterSquareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8837761286F41F40060C87B /* LetterSquareView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +93,7 @@
 		D4FAD037243A3599003CE5B6 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		D4FAD038243A35D5003CE5B6 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D4FAD03D243A7CED003CE5B6 /* SquareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareView.swift; sourceTree = "<group>"; };
+		E8837761286F41F40060C87B /* LetterSquareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterSquareView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +186,7 @@
 				D4FAD03D243A7CED003CE5B6 /* SquareView.swift */,
 				D4898C0928694A4E009DDEB3 /* KeyboardView.swift */,
 				D474A264286C8F080060255B /* GameOverView.swift */,
+				E8837761286F41F40060C87B /* LetterSquareView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -359,6 +362,7 @@
 				D4898C0E286AACAA009DDEB3 /* Dataset.swift in Sources */,
 				D474A267286D41190060255B /* Game.swift in Sources */,
 				D4898C0A28694A4E009DDEB3 /* KeyboardView.swift in Sources */,
+				E8837762286F41F40060C87B /* LetterSquareView.swift in Sources */,
 				D474A26F286EA71E0060255B /* ButtonStyle.swift in Sources */,
 				D4556F0524394C550025E7D3 /* ContentView.swift in Sources */,
 				D4FAD03E243A7CED003CE5B6 /* SquareView.swift in Sources */,

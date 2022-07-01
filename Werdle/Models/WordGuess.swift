@@ -52,19 +52,19 @@ struct WordGuess: Identifiable {
 		var letterGuesses: [LetterGuess] = []
 		
 		for i in 0..<Constants.wordLength {
-			var eval: LetterEval = .wrongPosition
+			var eval: LetterEval = .notInPosition
 			let wordLetter = wordLetters[i]
 
 			if !target.contains(wordLetter) {
-				eval = .missing
+				eval = .notInWord
 			} else if wordLetter == targetLetters[i] {
-				eval = .correct
+				eval = .inPosition
 			}
 
 			letterGuesses.append(LetterGuess(id: i, letter: wordLetter, eval: eval))
 		}
 		
-		let incorrect = letterGuesses.filter({ $0.eval != .correct }).count > 0
+		let incorrect = letterGuesses.filter({ $0.eval != .inPosition }).count > 0
 		var wordGuess = WordGuess(id: guessIndex, letterGuesses: letterGuesses, correct: !incorrect)
 		wordGuess.cleanupWrongPositionEvals(target: target)
 		
@@ -74,11 +74,11 @@ struct WordGuess: Identifiable {
 	// check for multiple wrong positions of the same letter and prune accordingly to match target count
 	private mutating func cleanupWrongPositionEvals(target: String) {
 		for var letterGuess in letterGuesses.reversed() {
-			if letterGuess.eval == .wrongPosition {
+			if letterGuess.eval == .notInPosition {
 				
 				let targetCount = target.numberOfOccurrencesOf(string: letterGuess.letter)
-				let correctCount = letterGuesses.filter{ $0.eval == .correct && $0.letter == letterGuess.letter }.count
-				let wrongPositionCount = letterGuesses.filter{ $0.eval == .wrongPosition && $0.letter == letterGuess.letter }.count
+				let correctCount = letterGuesses.filter{ $0.eval == .inPosition && $0.letter == letterGuess.letter }.count
+				let wrongPositionCount = letterGuesses.filter{ $0.eval == .notInPosition && $0.letter == letterGuess.letter }.count
 
 				//print("target \(letterGuess.letter) count: \(targetCount)")
 				//print("guesses correct \(letterGuess.letter) count: \(correctCount)")
@@ -86,7 +86,7 @@ struct WordGuess: Identifiable {
 
 				if targetCount - correctCount < wrongPositionCount {
 					//print("marking: \(letterGuess) as missing")
-					letterGuess.eval = .missing
+					letterGuess.eval = .notInWord
 					letterGuesses[letterGuess.id] = letterGuess
 				}
 			}

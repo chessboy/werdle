@@ -9,54 +9,59 @@
 import SwiftUI
 
 struct SquareView: View {
-	
-	var width: CGFloat
-	var columns: [GridItem] = []
-	@Binding var game: Game
-	
-	var body: some View {
-		
-		VStack {
-			ForEach(game.wordGuesses, id: \.id) { wordGuess in
-				HStack {
-					ForEach(wordGuess.letterGuesses, id: \.id) { letterGuess in
-						
-						ZStack {
-							Rectangle().foregroundColor(wordGuess.bad ? Colors.squareBadWord : letterGuess.eval.color).border(wordGuess.bad ? Colors.squareBadWord : letterGuess.eval.borderColor, width: 2)
-								.frame(width: width/6, height: width/6, alignment: .center)
-							Text(letterGuess.letter)
-								.appFont(.black, size: 45)
-								.foregroundColor(letterGuess.eval == .blank ? Colors.textDark : Colors.textLight)
-						}
-					}
-				}
-			}
-			.padding(.horizontal)
-		}
-	}
+    
+    var width: CGFloat
+    var columns: [GridItem] = []
+    @Binding var game: Game
+    @State var shakeOffset = 0.0
+    
+    var body: some View {
+        
+        VStack {
+            ForEach(game.wordGuesses, id: \.id) { wordGuess in
+                HStack {
+                    ForEach(wordGuess.letterGuesses, id: \.id) { letterGuess in
+                        LetterSquareView(width: width, wordGuessBad: game.lastWordWasBad && wordGuess.id == game.guessIndex, letterGuess: letterGuess)
+                    }
+                    .offset(x: game.lastWordWasBad && wordGuess.id == game.guessIndex ? shakeOffset : 0)
+                    .onChange(of: game.lastWordWasBad) { newValue in
+                        withAnimation(.linear(duration: 0.075).repeatCount(3)) {
+                            shakeOffset = -15
+                        }
+                        AppDelegate.afterDelay(0.225) {
+                            withAnimation(.linear(duration: 0.075).repeatCount(3)) {
+                                shakeOffset = 0
+                                AppDelegate.afterDelay(0.225) { game.lastWordWasBad = false }
+                            }
+                        }
+                    }
+                }
+            }
+            .padding(.horizontal)
+        }
+    }
 }
 
 struct SquareView_Previews: PreviewProvider {
-	static var previews: some View {
-		PreviewWrapper()
-	}
-
-	struct PreviewWrapper: View {
-
-		@State(initialValue: Game()) var game: Game
-
-		var body: some View {
-			GeometryReader { geo in
-				
-				VStack {
-					Spacer()
-					SquareView(width: min(geo.size.width, geo.size.height), game: self.$game)
-						.frame(height: min(geo.size.width, geo.size.height))
-						.preferredColorScheme(.dark)
-
-					Spacer()
-				}
-			}
-		}
-	}
+    static var previews: some View {
+        PreviewWrapper()
+    }
+    
+    struct PreviewWrapper: View {
+        
+        @State(initialValue: Game()) var game: Game
+        
+        var body: some View {
+            GeometryReader { geo in
+                
+                VStack {
+                    Spacer()
+                    SquareView(width: min(geo.size.width, geo.size.height), game: self.$game)
+                        .frame(height: min(geo.size.width, geo.size.height))
+                        .preferredColorScheme(.dark)
+                    Spacer()
+                }
+            }
+        }
+    }
 }

@@ -11,7 +11,7 @@ import Foundation
 struct LetterGuess: Identifiable, CustomStringConvertible, Comparable {
 	var id: Int = 0
 	var letter: String = ""
-	var eval: LetterEval = .missing
+	var eval: LetterEval = .notInWord
 	
 	var description: String {
 		return "\(id): \(letter == "" ? "_" : letter):\(eval)"
