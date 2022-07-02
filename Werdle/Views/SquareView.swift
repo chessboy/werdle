@@ -26,7 +26,7 @@ struct SquareView: View {
                     .offset(x: game.lastWordWasBad && wordGuess.id == game.guessIndex ? shakeOffset : 0)
                     .onChange(of: game.lastWordWasBad) { newValue in
                         withAnimation(.linear(duration: 0.075).repeatCount(3)) {
-                            shakeOffset = -15
+                            shakeOffset = -12
                         }
                         AppDelegate.afterDelay(0.225) {
                             withAnimation(.linear(duration: 0.075).repeatCount(3)) {
