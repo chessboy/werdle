@@ -105,15 +105,13 @@ struct Game {
 		wordGuesses[guessIndex] = wordGuess
 		uniqueLetterGuesses = generateUniqueLetterGuesses()
 		solved = wordGuess.correct
-
-//		print("guess \(guessIndex + 1): \(wordGuess), solved: \(solved)")
-//		print("guess \(guessIndex + 1): uniqueLetterGuesses: \(uniqueLetterGuesses)")
-//		print()
 		
-		if guessIndex == Constants.maxGuesses - 1 {
+		if !solved, guessIndex == Constants.maxGuesses - 1 {
 			lost = true
 		}
 		
+//		print("guess \(guessIndex + 1): \(wordGuess), solved: \(solved), lost: \(lost)")
+//		print("guess \(guessIndex + 1): uniqueLetterGuesses: \(uniqueLetterGuesses)")
         guard !gameOver else { return }
 
 		guessIndex += 1

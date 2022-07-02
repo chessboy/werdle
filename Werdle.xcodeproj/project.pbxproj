@@ -219,9 +219,9 @@
 		D46791802439933B00D464A3 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				D4556F2224394F250025E7D3 /* Constants.swift */,
 				D4556F0024394C550025E7D3 /* AppDelegate.swift */,
 				D4556F0224394C550025E7D3 /* SceneDelegate.swift */,
-				D4556F2224394F250025E7D3 /* Constants.swift */,
 				D4661FD72439AB550077D091 /* Colors.swift */,
 			);
 			path = App;
