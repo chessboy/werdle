@@ -30,7 +30,8 @@ struct ContentView: View {
 				Spacer()
 				KeyboardView(game: $game, width: min(geo.size.width, geo.size.height))
 					.opacity(showingGameOver ? 0 : 1)
-
+				Spacer(minLength: 20)
+				
 				Button(action: {
 					withAnimation(.linear(duration: 0.3)) {
 						showingAlert.toggle()
@@ -51,7 +52,7 @@ struct ContentView: View {
 				.overlay(RoundedRectangle(cornerRadius: 7).stroke(Color(.gray), lineWidth: 2))
 				.buttonStyle(ScaleButtonStyle())
 				.opacity(showingGameOver ? 0 : 1)
-				Spacer(minLength: 20)
+				Spacer()
 			}
 			GameOverView(game: $game, show: $showingGameOver, width: min(geo.size.width, geo.size.height))
 		}

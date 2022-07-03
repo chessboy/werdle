@@ -21,7 +21,7 @@ struct LetterSquareView: View {
                 .frame(width: width/6, height: width/6, alignment: .center)
             Text(letterGuess.letter)
                 .appFont(.black, size: 45)
-                .foregroundColor(letterGuess.eval == .notInWord ? Colors.textDark : Colors.textLight)
+                .foregroundColor(letterGuess.eval == .blank ? Colors.textDark : Colors.textLight)
                 .rotation3DEffect(.degrees(letterGuess.eval == .blank ? 0 : -180), axis: (x: 0, y: 1, z: 0), perspective: 0.25)
         }
         .rotation3DEffect(.degrees(letterGuess.eval == .blank ? 0 : 180), axis: (x: 0, y: 1, z: 0), perspective: 0.25)
